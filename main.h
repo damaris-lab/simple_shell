@@ -6,7 +6,9 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <string.h>
+#include <sys/wait.h
 
+in execute_s(char **args, char **envp);
 
 
 

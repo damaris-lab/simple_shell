@@ -1,4 +1,4 @@
-#include "shell."
+#include "shell.h"
 
 /**
   * main - Main entry point for our program
@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 	char *str, delim;
 	char token;
 	int i;
-	child_pid, wait;
+	pid_t child_pid wait;
 
 
 	while (1)
@@ -28,37 +28,40 @@ int main(int argc, char *argv[])
 			perror("");
 			EXIT(1);
 		}
+		token = strtok(str, delim);
+		int i = 0;
 
-	token = strtok(str, delim);
-	int i = 0;
-
-	while (token != NULL)
-	{
-		str[i] = token;
-		token = strtok(NULL, " ");
-		i++;
-	}
-	str[i] = NULL ;
-
-	child_pid = fork();
-
-	if (child_pid == -1)
-	{
-		perror("failed to create child process")
-			EXIT(-1);
-	}
-	if (child_pid == 0)
-	{
-		if (execve(str[0], str, NULL)) != -1)
+		while (token != NULL)
 		{
-			perror("failed to execute");
+			str[i] = token;
+			token = strtok(NULL, " ");
+			i++;
+		}	
+		str[i] = NULL;
+
+		pid_t child_pid = fork();
+
+		if(child_pid == -1)
+		{
+			perror("failed to create child process")
 			EXIT(-1);
 		}
+		if (child_pid == 0)
+		{
+			if (execve(str[0], str, NULL)) != -1)
+			{
+				perror("failed to execute");
+				EXIT(-1);
+			}
+		}
+		else
+		{
+			wait(&status);
+		}
 	}
-	else
-	{
-		wait(&status);
-	}
-	
+	free(buffer);
+	return (0);
+}
+
 
 
