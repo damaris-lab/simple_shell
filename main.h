@@ -6,9 +6,13 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <string.h>
-#include <sys/wait.h
+#include <sys/wait.h>
 
-in execute_s(char **args, char **envp);
+int execute_s(char **args, char **envp);
+int main(int argc, char **argv[]);
+char tokenizer(char *str);
+void handle_error(char *program);
+char get_path(char **envp);
 
 
 
