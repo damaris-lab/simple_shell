@@ -49,4 +49,24 @@ int _strcmp(char *s1, char *s2)
 	}
 	return (0);
 }
+/**
+ * _strdup - returns a pointer to a dynamically allocated copy
+ * of a string
+ * @str: The string to copy
+ *
+ * Return: On success, a pointer to the duplicated string in memory
+ * Otherwise NULL is returned
+ */
 
+char *_strdup(char *str)
+{
+	char  *strp;
+
+	if (str == NULL)
+		return (NULL);
+	strp = malloc(_strlen(str) + 1);
+	if (strp == NULL)
+		return (NULL);
+	_strcpy(strp, str);
+	return (strp);
+}

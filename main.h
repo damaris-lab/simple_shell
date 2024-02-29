@@ -13,6 +13,7 @@ int main(int argc, char **argv[]);
 char tokenizer(char *str);
 void handle_error(char *program);
 char get_path(char **envp);
+void free_argv(char **args);
 
 
 
