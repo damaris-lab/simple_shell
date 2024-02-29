@@ -14,15 +14,22 @@ int tokenizer(char *str)
 	char *delim = " \n:";
 	int i;
 	char **tokens;
+	int size = 0;
 
 	token = strtok(str, delim);
-	 i = 0;
-
+	tokens = malloc(size * sizeof(char *));
+	if (tokens == NULL)
+		return (-1);
+	i = 0;
 	while (token != NULL)
 	{
-		token = strdup(token);
+		tokens[i++] = strdup(token);
 		token = strtok(NULL, delim);
-		i++;
+	}
+	if (i == 0)
+	{
+		free(tokens);
+		return (1);
 	}
 	tokens[i] = NULL;
 	return (0);

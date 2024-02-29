@@ -64,9 +64,9 @@ char *_strdup(char *str)
 
 	if (str == NULL)
 		return (NULL);
-	strp = malloc(_strlen(str) + 1);
+	strp = malloc(strlen(str) + 1);
 	if (strp == NULL)
 		return (NULL);
-	_strcpy(strp, str);
+	strcpy(strp, str);
 	return (strp);
 }

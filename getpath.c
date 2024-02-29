@@ -7,7 +7,7 @@
  * Return: On success, a pointer to the environment
  * variable, otherwise return NULL
  */
-char *get_path(char **envp)
+char get_path(char **envp)
 {
 	char *path = NULL;
 	int i;
@@ -21,6 +21,6 @@ char *get_path(char **envp)
 		}
 	}
 	if (path == NULL)
-		return (NULL);
-	return (path);
+		return (-1);
+	return (0);
 }

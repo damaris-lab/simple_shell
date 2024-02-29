@@ -23,7 +23,7 @@ int execute_s(char **args, char **envp)
 	}
 	if (child_pid == 0)
 	{
-		int val = execve(args[0], args, NULL);
+		 val = execve(args[0], args, envp);
 
 		if (val == -1)
 		{

@@ -11,7 +11,7 @@ void handle_error(char *program)
 	char *str_prog = "./hsh: 1: ";
 	char *end_str = ": not found\n";
 
-	write(2, str_prog, _strlen(str_prog));
-	write(2, program, _strlen(program));
-	write(2, end_str, _strlen(end_str));
+	write(2, str_prog, strlen(str_prog));
+	write(2, program, strlen(program));
+	write(2, end_str, strlen(end_str));
 }
