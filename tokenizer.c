@@ -5,7 +5,6 @@
 /**
  * tokenizer - parses the string provided as input
  * @str: sring to be parsed
- * @delim: delimeter
  * Return: the parsed string
  */
 int tokenizer(char *str)
