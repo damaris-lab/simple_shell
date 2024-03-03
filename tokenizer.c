@@ -15,12 +15,12 @@ int tokenizer(char *str)
 	char **tokens;
 	int size = 0;
 
-	token = strtok(str, delim);
+	tokens = strtok(str, delim);
 	tokens = malloc(size * sizeof(char *));
 	if (tokens == NULL)
 		return (-1);
 	i = 0;
-	while (token != NULL)
+	while (tokens != NULL)
 	{
 		tokens[i++] = strdup(token);
 		token = strtok(NULL, delim);
