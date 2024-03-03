@@ -9,7 +9,7 @@
 #include <sys/wait.h>
 
 int execute_s(char **args, char **envp);
-int main(int argc, char **argv);
+void read_input(void);
 char tokenizer(char *str);
 void handle_error(char *program);
 char get_path(char **envp);

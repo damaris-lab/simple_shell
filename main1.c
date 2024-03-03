@@ -1,34 +1,26 @@
 #include "main.h"
 
-/*
- * main - The main entry function
- *@argc: arguement count
- *@argv: arguement vector
- *Return:
+/**
+ *read_input - reads input from the user on stdin
+ * Return:return 0 or -1 on failure
  */
-int main(int argc, char **argv)
+void read_input(void)
 {
 	char *prompt = "(simpleshell) $";
 	char *lineptr = NULL;
 	size_t n = 0;
 	ssize_t nread;
 
-	(void) argc; (void) argv;
 
 	while (1)
 	{
-		printf("%s", prompt);
+		write(STDOUT_FILENO, prompt, strlen(prompt));
 		nread = getline(&lineptr, &n, stdin);
 		if (nread == -1)
 		{
-			printf("exiting  the shell");
-			return (-1);
+			perror("exit");
+			exit(EXIT_FAILURE);
 		}
-		printf("%s", lineptr);
-		free(lineptr);
 	}
-	return (0);
+	free(lineptr);
 }
-
-
-
